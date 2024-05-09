@@ -971,7 +971,7 @@ Tilemap:
       - {fileID: -1057661360, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: -1068050472, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: 3708391, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
-      m_AnimationSpeed: 20
+      m_AnimationSpeed: 20.000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 3, y: -5, z: 0}
@@ -3308,6 +3308,9 @@ MonoBehaviour:
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls: []
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &741856747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3320,7 +3323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c16ee1d39292c84ead909846c8227e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 50
   attacRange: 0
   attackRate: 0
 --- !u!1 &856476684
@@ -3800,6 +3803,7 @@ MonoBehaviour:
   crouchSize: {x: 0.3, y: 1.5}
   hurtForce: 8
   isHurt: 0
+  isDead: 0
 --- !u!114 &1673914700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3889,6 +3893,33 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: GetHurt
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1673914702}
+        m_TargetAssemblyTypeName: PlayerAnimation, Assembly-CSharp
+        m_MethodName: PlayDie
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1673914699}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: PlayerDie
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

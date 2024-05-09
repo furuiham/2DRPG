@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour {
     public float hurtForce;
     public bool isHurt;
 
+    public bool isDead;
+
     private void Awake() {
         runSpeed = moveSpeed;
         walkSpeed = moveSpeed / 2.5f;
@@ -70,6 +72,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update() {
+        CheckState();
         // sync input
         dirCommand = inputControl.inputDirecion;
         jumpCommand = inputControl.jump;
@@ -108,10 +111,6 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void OnTriggerStay2D(Collider2D other) {
-        // Debug.Log(other.name);
-    }
-
     public void GetHurt(Transform attacker) {
         isHurt = true;
         rigidbody2D.velocity = Vector2.zero;
@@ -120,5 +119,17 @@ public class PlayerController : MonoBehaviour {
         Vector2 dir = dirV2.normalized;
 
         rigidbody2D.AddForce(dir, ForceMode2D.Impulse);
+    }
+
+    public void PlayerDie() {
+        isDead = true;
+        inputControl.playerInputControl.Disable();
+    }
+
+    private void CheckState() {
+        if (isDead)
+            gameObject.layer = LayerMask.NameToLayer("Enemy");
+        else
+            gameObject.layer = LayerMask.NameToLayer("Player");
     }
 }

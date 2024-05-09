@@ -29,4 +29,8 @@ public class PlayerAnimation : MonoBehaviour {
     public void PlayerHurt() {
         animator.SetTrigger("hurt");
     }
+
+    public void PlayDie() {
+        animator.SetBool("IsDead", true);
+    }
 }

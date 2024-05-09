@@ -9,6 +9,7 @@ public class Character : MonoBehaviour {
     private float invincibleTimer;
 
     public UnityEvent<Transform> OnTakeDamage;
+    public UnityEvent OnDie;
 
     private void Start() {
         currentHealth = MaxHealth;
@@ -27,7 +28,7 @@ public class Character : MonoBehaviour {
 
         if (currentHealth < attacker.damage) {
             currentHealth = 0;
-            Debug.Log("die");
+            OnDie?.Invoke();
             // CharacterDie
             return;
         }
