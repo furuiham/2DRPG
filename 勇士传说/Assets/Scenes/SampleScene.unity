@@ -1048,7 +1048,7 @@ Tilemap:
       - {fileID: -701856838, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: -1559727426, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: -941599465, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
-      m_AnimationSpeed: 20.000002
+      m_AnimationSpeed: 20
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: -3, z: 0}
@@ -1334,7 +1334,7 @@ Tilemap:
       - {fileID: -1057661360, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: -1068050472, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: 3708391, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
-      m_AnimationSpeed: 20
+      m_AnimationSpeed: 20.000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -3798,6 +3798,8 @@ MonoBehaviour:
   originalSize: {x: 0.3, y: 1.7}
   crouchOffset: {x: -0.1, y: 0.75}
   crouchSize: {x: 0.3, y: 1.5}
+  hurtForce: 8
+  isHurt: 0
 --- !u!114 &1673914700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3875,6 +3877,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: PlayerAnimation, Assembly-CSharp
         m_MethodName: PlayerHurt
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1673914699}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: GetHurt
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

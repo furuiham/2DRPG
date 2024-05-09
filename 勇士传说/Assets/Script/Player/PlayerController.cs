@@ -38,6 +38,10 @@ public class PlayerController : MonoBehaviour {
 
     public Vector2 crouchOffset;
     public Vector2 crouchSize;
+
+    public float hurtForce;
+    public bool isHurt;
+
     private void Awake() {
         runSpeed = moveSpeed;
         walkSpeed = moveSpeed / 2.5f;
@@ -74,7 +78,9 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        Move();
+        if (!isHurt) {
+            Move();
+        }
     }
 
     public void Move() {
@@ -104,5 +110,15 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D other) {
         // Debug.Log(other.name);
+    }
+
+    public void GetHurt(Transform attacker) {
+        isHurt = true;
+        rigidbody2D.velocity = Vector2.zero;
+        var dirX = transform.position.x - attacker.position.x;
+        var dirV2 = new Vector2(dirX, 0f);
+        Vector2 dir = dirV2.normalized;
+
+        rigidbody2D.AddForce(dir, ForceMode2D.Impulse);
     }
 }
