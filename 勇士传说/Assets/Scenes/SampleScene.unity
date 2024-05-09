@@ -971,7 +971,7 @@ Tilemap:
       - {fileID: -1057661360, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: -1068050472, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: 3708391, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
-      m_AnimationSpeed: 20.000002
+      m_AnimationSpeed: 20
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 3, y: -5, z: 0}
@@ -1158,7 +1158,7 @@ Tilemap:
       - {fileID: -412103244, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: -2054020413, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: 1083452669, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
-      m_AnimationSpeed: 20
+      m_AnimationSpeed: 20.000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 5, y: 0, z: 0}
@@ -1334,7 +1334,7 @@ Tilemap:
       - {fileID: -1057661360, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: -1068050472, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: 3708391, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
-      m_AnimationSpeed: 20.000002
+      m_AnimationSpeed: 20
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -3606,6 +3606,7 @@ MonoBehaviour:
   jump: 0
   crouch: 0
   slider: 0
+  attack: 0
 --- !u!4 &1315015739
 Transform:
   m_ObjectHideFlags: 0
@@ -3796,10 +3797,11 @@ MonoBehaviour:
   jumpCommand: 0
   crouchCommand: 0
   sliderCommand: 0
+  attackCommand: 0
   isCourch: 0
   originalOffser: {x: 0, y: 0.85}
   originalSize: {x: 0.3, y: 1.7}
-  crouchOffset: {x: -0.1, y: 0.75}
+  crouchOffset: {x: 0, y: 0.75}
   crouchSize: {x: 0.3, y: 1.5}
   hurtForce: 8
   isHurt: 0

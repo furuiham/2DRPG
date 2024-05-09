@@ -8,6 +8,7 @@ public class InputController : MonoBehaviour {
     public bool jump;
     public bool crouch;
     public bool slider;
+    public bool attack;
 
     public void Awake() {
         instance = this;
@@ -23,6 +24,7 @@ public class InputController : MonoBehaviour {
         jump = playerInputControl.Gameplay.Jump.IsPressed();
         crouch = playerInputControl.Gameplay.Crouch.IsPressed();
         slider = playerInputControl.Gameplay.Slider.IsPressed();
+        attack = playerInputControl.Gameplay.Attack.IsPressed();
     }
 
     private void OnDisable() {

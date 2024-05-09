@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Scripting;
 
 public class PlayerController : MonoBehaviour {
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour {
     public bool jumpCommand;
     public bool crouchCommand;
     public bool sliderCommand;
+    public bool attackCommand;
 
     public bool isCourch;
 
@@ -59,6 +61,7 @@ public class PlayerController : MonoBehaviour {
                 moveSpeed = runSpeed;
             }
         };
+        inputControl.playerInputControl.Gameplay.Attack.started += PlayerAttack;
     }
 
     void Start() {
@@ -78,6 +81,7 @@ public class PlayerController : MonoBehaviour {
         jumpCommand = inputControl.jump;
         crouchCommand = inputControl.crouch;
         sliderCommand = inputControl.slider;
+        attackCommand = inputControl.attack;
     }
 
     private void FixedUpdate() {
@@ -131,5 +135,9 @@ public class PlayerController : MonoBehaviour {
             gameObject.layer = LayerMask.NameToLayer("Enemy");
         else
             gameObject.layer = LayerMask.NameToLayer("Player");
+    }
+
+    public void PlayerAttack(InputAction.CallbackContext obj) {
+
     }
 }
