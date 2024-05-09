@@ -1048,7 +1048,7 @@ Tilemap:
       - {fileID: -701856838, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: -1559727426, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: -941599465, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
-      m_AnimationSpeed: 20
+      m_AnimationSpeed: 20.000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: -3, z: 0}
@@ -1136,7 +1136,7 @@ Tilemap:
       - {fileID: -1057661360, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: -1068050472, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: 3708391, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
-      m_AnimationSpeed: 20.000002
+      m_AnimationSpeed: 20
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 3, y: 0, z: 0}
@@ -1158,7 +1158,7 @@ Tilemap:
       - {fileID: -412103244, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: -2054020413, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: 1083452669, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
-      m_AnimationSpeed: 20.000002
+      m_AnimationSpeed: 20
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 5, y: 0, z: 0}
@@ -3108,6 +3108,7 @@ GameObject:
   - component: {fileID: 741856744}
   - component: {fileID: 741856745}
   - component: {fileID: 741856746}
+  - component: {fileID: 741856747}
   m_Layer: 8
   m_Name: Boar
   m_TagString: Untagged
@@ -3296,14 +3297,32 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741856740}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd48f111001ec8a4d870a722f01d01de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5000
-  currentHealth: 0
+  currentHealth: 5000
   invincibleTime: 1
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &741856747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741856740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c16ee1d39292c84ead909846c8227e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  attacRange: 0
+  attackRate: 0
 --- !u!1 &856476684
 GameObject:
   m_ObjectHideFlags: 0
@@ -3615,7 +3634,6 @@ GameObject:
   - component: {fileID: 1673914700}
   - component: {fileID: 1673914701}
   - component: {fileID: 1673914702}
-  - component: {fileID: 1673914704}
   - component: {fileID: 1673914703}
   m_Layer: 7
   m_Name: player
@@ -3842,29 +3860,29 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673914694}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd48f111001ec8a4d870a722f01d01de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 100
-  currentHealth: 0
+  currentHealth: 100
   invincibleTime: 1
---- !u!114 &1673914704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1673914694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c16ee1d39292c84ead909846c8227e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 5
-  attacRange: 0
-  attackRate: 0
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1673914702}
+        m_TargetAssemblyTypeName: PlayerAnimation, Assembly-CSharp
+        m_MethodName: PlayerHurt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1916103260
 GameObject:
   m_ObjectHideFlags: 0

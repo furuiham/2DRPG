@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour {
@@ -26,5 +24,9 @@ public class PlayerAnimation : MonoBehaviour {
         animator.SetFloat("VelocityY", Mathf.Abs(rigidbody2D.velocity.y));
         animator.SetBool("IsGround", physicsCheck.isGround);
         animator.SetBool("IsCrouch", playerController.isCourch);
+    }
+
+    public void PlayerHurt() {
+        animator.SetTrigger("hurt");
     }
 }

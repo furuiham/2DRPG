@@ -8,7 +8,7 @@ public class Attack : MonoBehaviour {
     public float attacRange;
     public float attackRate;
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerStay2D(Collider2D other) {
         other.GetComponent<Character>().TakeDamage(this);
     }
 }

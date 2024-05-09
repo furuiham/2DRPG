@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Scripting;
 
 public class PlayerController : MonoBehaviour {
     public InputController inputControl;
@@ -55,7 +56,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Start() {
-        // ???
         inputControl = inputControl.instance;
         rigidbody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();

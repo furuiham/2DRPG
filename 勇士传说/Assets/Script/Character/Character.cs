@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.Events;
 
 public class Character : MonoBehaviour {
     [Header("基本属性")]
@@ -10,6 +7,8 @@ public class Character : MonoBehaviour {
     public float currentHealth;
     public float invincibleTime;
     private float invincibleTimer;
+
+    public UnityEvent<Transform> OnTakeDamage;
 
     private void Start() {
         currentHealth = MaxHealth;
@@ -26,6 +25,14 @@ public class Character : MonoBehaviour {
             return;
         }
 
+        if (currentHealth < attacker.damage) {
+            currentHealth = 0;
+            Debug.Log("die");
+            // CharacterDie
+            return;
+        }
+
+        OnTakeDamage?.Invoke(attacker.transform);
         invincibleTimer += invincibleTime;
         Debug.Log(attacker.damage);
         currentHealth -= attacker.damage;
