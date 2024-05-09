@@ -1,12 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class InputController : MonoBehaviour {
-    private PlayerInputControl playerInputControl;
+    public PlayerInputControl playerInputControl;
 
     public InputController instance;
     public Vector2 inputDirecion;
