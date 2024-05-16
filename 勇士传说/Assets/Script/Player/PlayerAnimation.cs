@@ -24,17 +24,15 @@ public class PlayerAnimation : MonoBehaviour {
         animator.SetFloat("VelocityY", Mathf.Abs(rigidbody2D.velocity.y));
         animator.SetBool("IsGround", physicsCheck.isGround);
         animator.SetBool("IsCrouch", playerController.isCourch);
+        animator.SetBool("IsDead", playerController.isDead);
+        animator.SetBool("IsAttack", playerController.isAttack);
     }
 
     public void PlayerHurt() {
         animator.SetTrigger("hurt");
     }
 
-    public void PlayDie() {
-        animator.SetBool("IsDead", true);
-    }
-
     public void PlayAttack() {
-        animator.SetTrigger("attack");
+        animator.SetTrigger("Attack");
     }
 }

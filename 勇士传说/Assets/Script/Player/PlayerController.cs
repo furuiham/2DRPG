@@ -1,12 +1,10 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Scripting;
 
 public class PlayerController : MonoBehaviour {
     public InputController inputControl;
     public PhysicsCheck physicsCheck;
+    public PlayerAnimation playerAnimation;
 
     [Header("基本参数")]
     public float moveSpeed = 3;
@@ -25,25 +23,23 @@ public class PlayerController : MonoBehaviour {
     public SpriteRenderer spriteRenderer;
 
     [Header("Input 参数")]
-    // input command
     public Vector2 dirCommand;
-
     public bool jumpCommand;
     public bool crouchCommand;
     public bool sliderCommand;
     public bool attackCommand;
 
-    public bool isCourch;
-
     public Vector2 originalOffser;
     public Vector2 originalSize;
-
     public Vector2 crouchOffset;
     public Vector2 crouchSize;
 
     public float hurtForce;
-    public bool isHurt;
 
+    [Header("状态")]
+    public bool isCourch;
+    public bool isHurt;
+    public bool isAttack;
     public bool isDead;
 
     private void Awake() {
@@ -72,6 +68,7 @@ public class PlayerController : MonoBehaviour {
         coll = GetComponent<CapsuleCollider2D>();
         originalOffser = coll.offset;
         originalSize = coll.size;
+        playerAnimation = GetComponent<PlayerAnimation>();
     }
 
     void Update() {
@@ -138,6 +135,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void PlayerAttack(InputAction.CallbackContext obj) {
-
+        playerAnimation.PlayAttack();
+        isAttack = true;
     }
 }

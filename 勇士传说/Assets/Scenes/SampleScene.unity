@@ -1257,7 +1257,7 @@ Tilemap:
       - {fileID: -412103244, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: -2054020413, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: 1083452669, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
-      m_AnimationSpeed: 20
+      m_AnimationSpeed: 20.000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 5, y: 3, z: 0}
@@ -3115,7 +3115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &741856741
 Rigidbody2D:
   serializedVersion: 4
@@ -3789,6 +3789,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputControl: {fileID: 1315015738}
   physicsCheck: {fileID: 0}
+  playerAnimation: {fileID: 0}
   moveSpeed: 300
   jumpForce: 16.5
   rigidbody2D: {fileID: 1673914698}
@@ -3798,13 +3799,14 @@ MonoBehaviour:
   crouchCommand: 0
   sliderCommand: 0
   attackCommand: 0
-  isCourch: 0
   originalOffser: {x: 0, y: 0.85}
   originalSize: {x: 0.3, y: 1.7}
   crouchOffset: {x: 0, y: 0.75}
   crouchSize: {x: 0.3, y: 1.5}
   hurtForce: 8
+  isCourch: 0
   isHurt: 0
+  isAttack: 0
   isDead: 0
 --- !u!114 &1673914700
 MonoBehaviour:
