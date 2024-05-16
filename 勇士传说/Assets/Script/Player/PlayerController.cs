@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour {
     public InputController inputControl;
@@ -10,10 +11,7 @@ public class PlayerController : MonoBehaviour {
     public float moveSpeed = 3;
 
     private float runSpeed;
-
-    // private float runSpeed => moveSpeed;
     private float walkSpeed;
-    // private float walkSpeed => moveSpeed / 2.5f;
 
     private CapsuleCollider2D coll;
 
@@ -22,8 +20,12 @@ public class PlayerController : MonoBehaviour {
     public Rigidbody2D rigidbody2D;
     public SpriteRenderer spriteRenderer;
 
+    public PhysicsMaterial2D normalMaterial;
+    public PhysicsMaterial2D wallMaterial;
+
     [Header("Input 参数")]
     public Vector2 dirCommand;
+
     public bool jumpCommand;
     public bool crouchCommand;
     public bool sliderCommand;
@@ -38,10 +40,14 @@ public class PlayerController : MonoBehaviour {
 
     [Header("状态")]
     public bool isCourch;
+
     public bool isHurt;
     public bool isAttack;
     public bool isDead;
 
+
+    // other
+    public Transform attackArea;
     private void Awake() {
         runSpeed = moveSpeed;
         walkSpeed = moveSpeed / 2.5f;
@@ -82,15 +88,21 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (!isHurt) {
+        if (!isHurt && !isAttack) {
             Move();
         }
     }
 
     public void Move() {
         if (dirCommand.x < 0) {
+            var scale = attackArea.localScale;
+            scale.x = -1;
+            attackArea.localScale = scale;
             spriteRenderer.flipX = true;
         } else if (dirCommand.x > 0) {
+            var scale = attackArea.localScale;
+            scale.x = 1;
+            attackArea.localScale = scale;
             spriteRenderer.flipX = false;
         }
 
@@ -128,6 +140,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void CheckState() {
+        rigidbody2D.sharedMaterial = physicsCheck.isGround ? normalMaterial : wallMaterial;
         if (isDead)
             gameObject.layer = LayerMask.NameToLayer("Enemy");
         else

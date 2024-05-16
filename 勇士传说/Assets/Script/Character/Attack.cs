@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Attack : MonoBehaviour {
@@ -9,6 +6,11 @@ public class Attack : MonoBehaviour {
     public float attackRate;
 
     private void OnTriggerStay2D(Collider2D other) {
+        if (other.GetComponent<Character>() == null) {
+            Debug.Log($"{this.gameObject.name} 2 {other.gameObject.name} trigger null");
+            return;
+        }
+
         other.GetComponent<Character>().TakeDamage(this);
     }
 }

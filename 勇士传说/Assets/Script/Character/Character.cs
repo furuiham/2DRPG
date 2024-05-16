@@ -35,7 +35,6 @@ public class Character : MonoBehaviour {
 
         OnTakeDamage?.Invoke(attacker.transform);
         invincibleTimer += invincibleTime;
-        Debug.Log(attacker.damage);
         currentHealth -= attacker.damage;
     }
 }
