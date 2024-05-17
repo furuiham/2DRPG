@@ -19,6 +19,7 @@ public class PlayerAnimation : MonoBehaviour {
         SetAnimation();
     }
 
+    // Set animatio
     public void SetAnimation() {
         animator.SetFloat("VelocityX", Mathf.Abs(rigidbody2D.velocity.x));
         animator.SetFloat("VelocityY", Mathf.Abs(rigidbody2D.velocity.y));
@@ -26,7 +27,7 @@ public class PlayerAnimation : MonoBehaviour {
         animator.SetBool("IsCrouch", playerController.isCourch);
         animator.SetBool("IsDead", playerController.isDead);
         animator.SetBool("IsAttack", playerController.isAttack);
-    }
+   }
 
     public void PlayerHurt() {
         animator.SetTrigger("hurt");
