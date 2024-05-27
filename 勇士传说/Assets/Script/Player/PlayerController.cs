@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour {
 
     // other
     public Transform attackArea;
+
     private void Awake() {
         runSpeed = moveSpeed;
         walkSpeed = moveSpeed / 2.5f;
@@ -148,7 +149,9 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void PlayerAttack(InputAction.CallbackContext obj) {
-        playerAnimation.PlayAttack();
-        isAttack = true;
+        if (physicsCheck.isGround) {
+            playerAnimation.PlayAttack();
+            isAttack = true;
+        }
     }
 }

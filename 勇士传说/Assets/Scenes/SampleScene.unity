@@ -1086,7 +1086,7 @@ Tilemap:
       - {fileID: -701856838, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: -1559727426, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: -941599465, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
-      m_AnimationSpeed: 20.000002
+      m_AnimationSpeed: 20
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: -5, z: 0}
@@ -1229,7 +1229,7 @@ Tilemap:
       - {fileID: -412103244, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: -2054020413, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: 1083452669, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
-      m_AnimationSpeed: 20
+      m_AnimationSpeed: 20.000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 5, y: -1, z: 0}
@@ -1251,7 +1251,7 @@ Tilemap:
       - {fileID: -701856838, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: -1559727426, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: -941599465, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
-      m_AnimationSpeed: 20.000002
+      m_AnimationSpeed: 20
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: 0, z: 0}
@@ -1350,7 +1350,7 @@ Tilemap:
       - {fileID: -701856838, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: -1559727426, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
       - {fileID: -941599465, guid: acefc79a6e6873f43b8ce99de3748d3a, type: 3}
-      m_AnimationSpeed: 20.000002
+      m_AnimationSpeed: 20
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: 3, z: 0}
@@ -4173,15 +4173,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd48f111001ec8a4d870a722f01d01de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 5000
-  currentHealth: 5000
+  MaxHealth: 5
+  currentHealth: 0
   invincibleTime: 0.9
   OnTakeDamage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 741856748}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: OnTakeDamage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDie:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 741856748}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: OnDie
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &741856747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4214,9 +4238,13 @@ MonoBehaviour:
   chaseSpeed: 260
   currentSpeed: 0
   faceDir: {x: 0, y: 0, z: 0}
+  attacker: {fileID: 0}
+  isHurt: 0
   waitTime: 2
   wait: 0
   waitTimeCounter: 0
+  hurtForce: 5
+  isDead: 0
 --- !u!95 &741856749
 Animator:
   serializedVersion: 5
